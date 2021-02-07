@@ -29,15 +29,21 @@ let flipped;
   console.log(err);
 });
 
+// const colorsOptions = [
+//   'red',
+//   'yellow',
+//   'green',
+//   'blue',
+//   'magenta',
+//   'cyan',
+//   'white'
+// ];
+
 const colorsOptions = [
-  'red',
-  'yellow',
-  'green',
-  'blue',
   'magenta',
-  'cyan',
-  'white'
+  'magenta'
 ];
+
 const numColors = colorsOptions.length;
 const selectColor = previousColor => {
   let color;
@@ -75,15 +81,6 @@ const server = http.createServer((req, res) => {
   if (req.url === '/healthcheck') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({status: 'ok'}));
-  }
-
-  if (
-    req.headers &&
-    req.headers['user-agent'] &&
-    !req.headers['user-agent'].includes('curl')
-  ) {
-    res.writeHead(302, { Location: 'https://github.com/hugomd/parrot.live' });
-    return res.end();
   }
 
   const stream = new Readable();
