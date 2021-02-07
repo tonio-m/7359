@@ -1,23 +1,32 @@
-# parrot.live
+# 7359
 
-An initiative, using frames from [`terminal-parrot`](https://github.com/jmhobbs/terminal-parrot), to allow any computer with `curl` to display an _animated_ party parrot.
+Animaçãozinha pelo curl do sinalzin da mildade. 
 
-# Try it!
+Código copiado de [parrot.live](https://parrot.live)
+
+### Instruções:
 ```bash
-curl parrot.live
+git clone https://github.com/tonio-m/7359
+cd 7359
+npm install 
+node index.js &
+curl localhost:3000
+
+# tunelar o server para um ip publico:
+# ngrok http 3000
 ```
 
-# :partyparrot:
 <div align="center">
-  <img src='https://d.pr/i/jKluc0.gif' />
+  <img src='https://cdn.discordapp.com/attachments/796264290662875146/807818956323684393/sinal2.gif' />
 </div>
 
-# Thanks
-* [jmhobbs](https://github.com/jmhobbs) for [`terminal-parrot`](https://github.com/jmhobbs/terminal-parrot), and for the animation frames
-* [Robert Koch](https://github.com/kochie/) and [Eric Jiang](https://github.com/lorderikir) for testing it, and giving feedback ⭐
 
-# More Parrots
-* [cultofthepartyparrot.com](http://cultofthepartyparrot.com/)
-* [`terminal-parrot`](https://github.com/jmhobbs/terminal-parrot)
-* [`parrotsay`](https://github.com/matheuss/parrotsay)
-* [`ascii.live`](https://github.com/hugomd/ascii.live)
+
+#### Gerar a ascii art a partir de um gif:
+
+```bash
+# diante desse fator:
+mkdir frames
+ffmpeg -i filename.gif -vsync 0 frames/output%03d.png
+for i in $(ls); do jp2a $i > ${i}.txt; done
+```
